@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aayan Guest House - Rooms and Enquiries</title>
+<meta name="description" content="Aayan Guest House: comfortable rooms for families. Call or WhatsApp to check availability.">
+<style>
+:root{--brand:#9dd935;--brand-d:#7bb027;--ink:#1d2a08;--muted:#586450;--bg:#f9faf5;--line:#e2e8d6;--r:14px;--currency:""}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;font-family:'Gill Sans','Gill Sans MT',Calibri,'Trebuchet MS',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+section{padding:56px 0}
+.sec{font-size:clamp(1.6rem,4vw,2.1rem);margin:0 0 8px;text-align:center}
+.sub{text-align:center;color:var(--muted);margin:0 auto 32px;max-width:620px}
+.btn{display:inline-block;background:var(--brand);color:var(--ink);border:2px solid var(--brand);padding:11px 24px;border-radius:999px;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--brand-d);border-color:var(--brand-d)}
+.btn.alt{background:transparent;border-color:currentColor}
+.btn.alt:hover{background:rgba(157,217,53,.25)}
+.center{text-align:center;margin-top:28px}
+
+header{position:sticky;top:0;z-index:50;background:var(--brand)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-weight:700;font-style:italic;letter-spacing:.06em;text-decoration:none;font-size:1.2rem}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;align-items:center}
+nav a{text-decoration:none;font-weight:600}
+nav a:hover{text-decoration:underline}
+nav .go{background:var(--ink);color:#fff;padding:8px 18px;border-radius:999px}
+nav .go:hover{text-decoration:none;background:#34480f}
+#menu{display:none;background:none;border:0;font-size:1.9rem;cursor:pointer;color:var(--ink)}
+
+.hero{position:relative;min-height:72vh;display:grid;place-items:center;text-align:center;color:#fff;background:#2c3a14}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.6))}
+.hero .in{position:relative;z-index:1;padding:40px 20px}
+.hero h1{font-size:clamp(2.1rem,7vw,3.8rem);margin:0;letter-spacing:.08em}
+.hero p{font-size:1.3rem;font-style:italic;margin:10px 0 28px}
+.hero .btn{margin:4px}
+.hero .alt{color:#fff}
+
+.facts{background:#fff;border-bottom:1px solid var(--line)}
+.facts ul{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 32px;list-style:none;margin:0;padding:16px 20px;font-weight:600}
+.about{max-width:720px;margin:0 auto;font-size:1.15rem;text-align:center}
+
+.grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}
+.slide{flex:0 0 100%;aspect-ratio:4/3;scroll-snap-align:start;display:grid;place-items:center;background:#e9f4cf;color:var(--muted)}
+.slide img{width:100%;height:100%;object-fit:cover}
+.body{padding:18px;display:flex;flex-direction:column;gap:12px;flex:1}
+.body h3{margin:0;font-size:1.45rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.chips li{background:#f0f7e0;border-radius:999px;padding:3px 12px;font-size:.92rem}
+.price{font-size:1.7rem;font-weight:700;margin-top:auto}
+.price small{font-size:.9rem;font-weight:400;color:var(--muted)}
+.cur::before{content:var(--currency)}
+.note{text-align:center;color:var(--muted);margin-top:22px}
+
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.step b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--brand);margin-bottom:8px}
+.step p{margin:4px 0 0;color:var(--muted)}
+
+.two{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.panel{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.panel h3{margin:0 0 8px;font-size:1.4rem}
+.row{display:flex;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.row span:first-child{font-size:1.5rem}
+.row small{display:block;color:var(--muted)}
+.panel .btn{margin-top:18px}
+fieldset{border:0;padding:0;margin:0;min-width:0}
+label{display:block;font-weight:600;margin:12px 0 4px}
+input{width:100%;padding:11px;border:1px solid #cdd7bd;border-radius:8px;font:inherit;background:#fff}
+fieldset:disabled{opacity:.55}
+fieldset:disabled .btn{cursor:not-allowed;background:#cdd7bd;border-color:#cdd7bd}
+.soon{background:var(--ink);color:#fff;border-radius:999px;font-size:.8rem;padding:2px 12px;margin-left:8px;vertical-align:middle;font-weight:400}
+.pay{margin-top:18px;padding:14px;border:2px dashed var(--brand);border-radius:10px;color:var(--muted)}
+.pay strong{color:var(--ink)}
+
+.gal{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
+.tile{aspect-ratio:1;border-radius:10px;background:#e9f4cf;display:grid;place-items:center;color:var(--muted);overflow:hidden}
+.tile img{width:100%;height:100%;object-fit:cover}
+blockquote{margin:0;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px}
+blockquote p{margin:0 0 10px}
+cite{font-style:normal;font-weight:600}
+
+footer{background:var(--brand);padding:22px 20px;text-align:center}
+footer p{margin:0}
+.mbar{display:none}
+
+@media(max-width:760px){
+  #menu{display:block}
+  nav{position:absolute;top:68px;left:0;right:0;background:var(--brand);display:none;padding:8px 20px 20px}
+  nav.open{display:block}
+  nav ul{flex-direction:column;align-items:flex-start;gap:14px}
+  section{padding:40px 0}
+  .mbar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:40;gap:8px;padding:8px;background:#fff;border-top:1px solid var(--line)}
+  .mbar a{flex:1;text-align:center;padding:10px}
+  body{padding-bottom:62px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top">AAYAN GUEST HOUSE</a>
+    <button id="menu" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#how">How to book</a></li>
+        <li><a href="#photos">Photos</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a class="go" href="#contact">Book Now</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <img src="/attachments/T3N4f4VqsyFTSq64UpRU9.jpeg" alt="Aayan Guest House exterior with a welcoming green facade, a bright entrance, and a calm residential setting that feels warm and family friendly">
+    <div class="in">
+      <h1>AAYAN GUEST HOUSE</h1>
+      <p>The best place to be with your family</p>
+      <a class="btn" href="#contact">Book Now</a>
+      <a class="btn alt" href="#rooms">View rooms</a>
+    </div>
+  </div>
+
+  <div class="facts">
+    <ul>
+      <li>Check-in 24 hours</li>
+      <li>Check-out 12:00 PM</li>
+      <li>Wi-Fi and A/C in every room</li>
+      <li>Pay at the property</li>
+    </ul>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <p class="about">Nestled in a peaceful location, Aayan Guest House offers a warm and welcoming atmosphere. With comfortable rooms, family-friendly facilities, and a touch of nature, it's the perfect getaway for relaxation and bonding.</p>
+    </div>
+  </section>
+
+  <section id="rooms" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="sec">Our rooms</h2>
+      <p class="sub">Swipe through the photos on each room. Call or WhatsApp us to check which rooms are available.</p>
+      <div class="grid">
+
+        <article class="card">
+          <div class="slides">
+            <div class="slide">Deluxe room photo 1</div>
+            <div class="slide">Deluxe room photo 2</div>
+            <div class="slide">Deluxe room photo 3</div>
+            <div class="slide">Deluxe room photo 4</div>
+          </div>
+          <div class="body">
+            <h3>Deluxe Room</h3>
+            <div>Up to 4 adults</div>
+            <ul class="chips"><li>Wi-Fi</li><li>A/C</li><li>Attached bathroom</li><li>TV</li></ul>
+            <div class="price"><span class="cur"></span>1,400 <small>per night</small></div>
+            <a class="btn" href="#contact">Check availability</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="slides">
+            <div class="slide">Double room photo 1</div>
+            <div class="slide">Double room photo 2</div>
+            <div class="slide">Double room photo 3</div>
+            <div class="slide">Double room photo 4</div>
+          </div>
+          <div class="body">
+            <h3>Double Room</h3>
+            <div>Up to 3 adults</div>
+            <ul class="chips"><li>Wi-Fi</li><li>A/C</li><li>Attached bathroom</li><li>TV</li></ul>
+            <div class="price"><span class="cur"></span>1,200 <small>per night</small></div>
+            <a class="btn" href="#contact">Check availability</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="slides">
+            <div class="slide">Single room photo 1</div>
+            <div class="slide">Single room photo 2</div>
+            <div class="slide">Single room photo 3</div>
+            <div class="slide">Single room photo 4</div>
+          </div>
+          <div class="body">
+            <h3>Single Room</h3>
+            <div>1 adult</div>
+            <ul class="chips"><li>Wi-Fi</li><li>A/C</li><li>Attached bathroom</li><li>TV</li></ul>
+            <div class="price"><span class="cur"></span>500 - 700 <small>per night</small></div>
+            <a class="btn" href="#contact">Check availability</a>
+          </div>
+        </article>
+
+      </div>
+      <p class="note">The guest numbers above are the maximum for each room. Check-in is open 24 hours and check-out is at 12:00 PM.</p>
+    </div>
+  </section>
+
+  <section id="how" style="background:#fff">
+    <div class="wrap">
+      <h2 class="sec">How to book</h2>
+      <p class="sub">Booking is by enquiry for now.</p>
+      <div class="steps">
+        <div class="step"><b>1</b><strong>Call, WhatsApp or email us</strong><p>Tell us your name, phone number, number of guests and arrival time.</p></div>
+        <div class="step"><b>2</b><strong>We confirm your room</strong><p>We check availability and confirm by phone.</p></div>
+        <div class="step"><b>3</b><strong>Pay at the property</strong><p>Online advance payment will be added later.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2 class="sec">Book now and find us</h2>
+      <p class="sub">Contact us to check availability and get directions.</p>
+      <div class="two">
+
+        <div class="panel">
+          <h3>Contact and directions</h3>
+          <a class="row" href="tel:+91 7686930107"><span>&#128222;</span><span>Call us<small>+91 7686930107</small></span></a>
+          <a class="row" href="https://wa.me/917686930107" target="_blank" rel="noopener"><span>&#128172;</span><span>WhatsApp<small>+91 7686930107</small></span></a>
+          <a class="row" href="mailto:aayanguesthouse@gmail.com"><span>&#9993;&#65039;</span><span>Email<small>aayanguesthouse@gmail.com</small></span></a>
+          <div class="row" style="border:0"><span>&#128205;</span><span>Address<small>2/1, Kavi Mohammad Iqbal Rd, Ekbalpur, Kidderpore, Kolkata, West Bengal 700023, India</small></span></div>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Aayan+Guest+House" target="_blank" rel="noopener">Get directions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="photos" style="background:#fff">
+    <div class="wrap">
+      <h2 class="sec">Photos</h2>
+      <p class="sub">A look around Aayan Guest House.</p>
+      <div class="gal">
+        <!-- Replace each tile's text with <img src="images/photo.jpg" alt="Describe the photo"> -->
+        <div class="tile">Photo 1</div><div class="tile">Photo 2</div><div class="tile">Photo 3</div>
+        <div class="tile">Photo 4</div><div class="tile">Photo 5</div><div class="tile">Photo 6</div>
+      </div>
+      <div class="center"><a class="btn alt" href="https://www.google.com/search?q=Aayan+guest+house" target="_blank" rel="noopener">See more photos on Google</a></div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <h2 class="sec">What our guests say</h2>
+      <p class="sub">Paste your best Google reviews below.</p>
+      <div class="grid">
+        <blockquote><p>Paste a guest review from your Google listing here.</p><cite>Reviewer name</cite></blockquote>
+        <blockquote><p>Paste a guest review from your Google listing here.</p><cite>Reviewer name</cite></blockquote>
+        <blockquote><p>Paste a guest review from your Google listing here.</p><cite>Reviewer name</cite></blockquote>
+      </div>
+      <div class="center"><a class="btn alt" href="https://www.google.com/search?q=Aayan+guest+house" target="_blank" rel="noopener">Read all reviews on Google</a></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; <span id="year">2026</span> Aayan Guest House. All rights reserved.</p>
+</footer>
+
+<div class="mbar">
+  <a class="btn" href="tel:+91 7686930107">Call</a>
+  <a class="btn alt" href="https://wa.me/917686930107" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+
+<script>
+/* What this JavaScript does (only two small jobs, no booking or payment logic):
+   1. Opens and closes the mobile menu (the three-line button) by adding or removing the "open" class on the menu.
+   2. Keeps the year in the footer current automatically. */
+const nav = document.querySelector('nav'), btn = document.getElementById('menu');
+btn.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+});
+nav.addEventListener('click', e => {
+  if (e.target.closest('a')) { nav.classList.remove('open'); btn.setAttribute('aria-expanded', false); }
+});
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
