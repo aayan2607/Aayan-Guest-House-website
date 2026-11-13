@@ -35,7 +35,7 @@ nav .go:hover{text-decoration:none;background:#34480f}
 
 .hero{position:relative;min-height:72vh;display:grid;place-items:center;text-align:center;color:#fff;background:#2c3a14}
 .hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.6))}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.78))}
 .hero .in{position:relative;z-index:1;padding:40px 20px}
 .hero h1{font-size:clamp(2.1rem,7vw,3.8rem);margin:0;letter-spacing:.08em}
 .hero p{font-size:1.3rem;font-style:italic;margin:10px 0 28px}
@@ -49,8 +49,8 @@ nav .go:hover{text-decoration:none;background:#34480f}
 .grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
 .slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}
-.slide{flex:0 0 100%;aspect-ratio:4/3;scroll-snap-align:start;display:grid;place-items:center;background:#e9f4cf;color:var(--muted)}
-.slide img{width:100%;height:100%;object-fit:cover}
+.slide{flex:0 0 100%;aspect-ratio:4/5;scroll-snap-align:start;display:grid;place-items:center;background:#e9f4cf;color:var(--muted);overflow:hidden;min-height:0}
+.slide img{width:100%;height:100%;object-fit:cover;object-position:center 60%}
 .body{padding:18px;display:flex;flex-direction:column;gap:12px;flex:1}
 .body h3{margin:0;font-size:1.45rem}
 .chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
@@ -81,9 +81,9 @@ fieldset:disabled .btn{cursor:not-allowed;background:#cdd7bd;border-color:#cdd7b
 .pay{margin-top:18px;padding:14px;border:2px dashed var(--brand);border-radius:10px;color:var(--muted)}
 .pay strong{color:var(--ink)}
 
-.gal{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
+.gal{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}
 .tile{aspect-ratio:1;border-radius:10px;background:#e9f4cf;display:grid;place-items:center;color:var(--muted);overflow:hidden}
-.tile img{width:100%;height:100%;object-fit:cover}
+.tile img{width:100%;height:100%;object-fit:cover;object-position:center 45%}
 blockquote{margin:0;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px}
 blockquote p{margin:0 0 10px}
 cite{font-style:normal;font-weight:600}
@@ -98,6 +98,7 @@ footer p{margin:0}
   nav.open{display:block}
   nav ul{flex-direction:column;align-items:flex-start;gap:14px}
   section{padding:40px 0}
+  .gal{grid-template-columns:repeat(2,1fr)}
   .mbar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:40;gap:8px;padding:8px;background:#fff;border-top:1px solid var(--line)}
   .mbar a{flex:1;text-align:center;padding:10px}
   body{padding-bottom:62px}
@@ -125,7 +126,7 @@ footer p{margin:0}
 
 <main id="top">
   <div class="hero">
-    <img src="/attachments/T3N4f4VqsyFTSq64UpRU9.jpeg" alt="Aayan Guest House exterior with a welcoming green facade, a bright entrance, and a calm residential setting that feels warm and family friendly">
+    <img src="images/hero-exterior.jpg" alt="Front of Aayan Guest House on Kavi Mohammad Iqbal Road, Kolkata">
     <div class="in">
       <h1>AAYAN GUEST HOUSE</h1>
       <p>The best place to be with your family</p>
@@ -152,15 +153,12 @@ footer p{margin:0}
   <section id="rooms" style="padding-top:0">
     <div class="wrap">
       <h2 class="sec">Our rooms</h2>
-      <p class="sub">Swipe through the photos on each room. Call or WhatsApp us to check which rooms are available.</p>
+      <p class="sub">Call or WhatsApp us to check which rooms are available.</p>
       <div class="grid">
 
         <article class="card">
           <div class="slides">
-            <div class="slide">Deluxe room photo 1</div>
-            <div class="slide">Deluxe room photo 2</div>
-            <div class="slide">Deluxe room photo 3</div>
-            <div class="slide">Deluxe room photo 4</div>
+            <div class="slide"><img src="images/deluxe-1.jpg" alt="Deluxe room with a double bed, A/C and ceiling fan" loading="lazy"></div>
           </div>
           <div class="body">
             <h3>Deluxe Room</h3>
@@ -173,10 +171,7 @@ footer p{margin:0}
 
         <article class="card">
           <div class="slides">
-            <div class="slide">Double room photo 1</div>
-            <div class="slide">Double room photo 2</div>
-            <div class="slide">Double room photo 3</div>
-            <div class="slide">Double room photo 4</div>
+            <div class="slide"><img src="images/double-1.jpg" alt="Double room with a wooden bed, A/C and curtains" loading="lazy"></div>
           </div>
           <div class="body">
             <h3>Double Room</h3>
@@ -189,10 +184,7 @@ footer p{margin:0}
 
         <article class="card">
           <div class="slides">
-            <div class="slide">Single room photo 1</div>
-            <div class="slide">Single room photo 2</div>
-            <div class="slide">Single room photo 3</div>
-            <div class="slide">Single room photo 4</div>
+            <div class="slide"><img src="images/single-1.jpg" alt="Single room with a bed, TV, A/C and ceiling fan" loading="lazy"></div>
           </div>
           <div class="body">
             <h3>Single Room</h3>
@@ -243,9 +235,12 @@ footer p{margin:0}
       <h2 class="sec">Photos</h2>
       <p class="sub">A look around Aayan Guest House.</p>
       <div class="gal">
-        <!-- Replace each tile's text with <img src="images/photo.jpg" alt="Describe the photo"> -->
-        <div class="tile">Photo 1</div><div class="tile">Photo 2</div><div class="tile">Photo 3</div>
-        <div class="tile">Photo 4</div><div class="tile">Photo 5</div><div class="tile">Photo 6</div>
+        <div class="tile"><img src="images/exterior.jpg" alt="Front of Aayan Guest House with the red signboard" loading="lazy"></div>
+        <div class="tile"><img src="images/entrance.jpg" alt="Entrance to Aayan Guest House" loading="lazy"></div>
+        <div class="tile"><img src="images/reception.jpg" alt="Reception desk" loading="lazy"></div>
+        <div class="tile"><img src="images/gallery-room.jpg" alt="Guest room with a wooden bed and A/C" loading="lazy"></div>
+        <div class="tile"><img src="images/gallery-corridor-1.jpg" alt="Corridor with room doors 1 and 2" loading="lazy"></div>
+        <div class="tile"><img src="images/gallery-corridor-2.jpg" alt="Corridor leading to rooms 6 and 7" loading="lazy"></div>
       </div>
       <div class="center"><a class="btn alt" href="https://www.google.com/search?q=Aayan+guest+house" target="_blank" rel="noopener">See more photos on Google</a></div>
     </div>
